@@ -29,8 +29,8 @@ class App extends React.Component {
         this.state = {
             //value: 'Hi',
             item: dummydata,
-            id: 1,
-            //option_num: 0,
+            id: 5,
+            option_num: 0,
             option_text:''
         }
         this.selectChange = this.selectChange.bind(this);
@@ -60,8 +60,10 @@ class App extends React.Component {
     
     getItem() {
         axios.get('http://ec2-18-216-249-173.us-east-2.compute.amazonaws.com/prodDesc', {params: {id: this.state.id}} )
+        //
         .then((response)=> {
             this.setState({item:response.data[0]})
+            console.log(response.data[0]);
         })
         .catch(((error)=> {
             console.log(error)
